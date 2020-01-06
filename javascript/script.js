@@ -24,11 +24,12 @@ var live = document.querySelector(".livesDisplay");
 var topleft = document.querySelector(".topLeft");
 var scoreDis = document.querySelector(".score");
 var scoreArray = document.querySelector("#scores");
+var newname = document.querySelector(".new");
+var pop = document.querySelector(".pop");
+var whole = document.querySelector(".Background");
 
 //--------- left display ----------------------
-if(name === ""){
-    alertusername();
-}
+checkingUser();
 start.addEventListener("click", createGame);
 start.addEventListener("click", playmusic);
 var live = document.createElement("div");
@@ -36,7 +37,6 @@ live.className = "livesDisplay";
 live.innerHTML = `lives left ${livescount}`;
 scoreDis.innerHTML = `Score: ${points}`
 topleft.appendChild(live);
-gettingPlayerName();
 
 
 //---------- game creation----------------
@@ -130,10 +130,12 @@ function loseCheck(){
         live.innerHTML = `lives left: ${livescount}`;
         highScoreArray.push({name:name, score:points});
         points = 0;
-        name = '';
+        name = "";
         scoreDis.innerHTML = `Score: ${points}`
         displayhighscore();
         clearGameBox(box);
+        checkingUser();
+
     }
     else{
         live.innerHTML = ``;
@@ -170,9 +172,11 @@ function foundCheck(){
                     live.innerHTML = `lives left: ${livescount}`;
                     highScoreArray.push({name:name, score:points});
                     points = 0;
+                    name = "";
                     scoreDis.innerHTML = `Score: ${points}`
                     displayhighscore();
                     clearGameBox(box);
+                    checkingUser();
                     }
 found = false;
 }
@@ -185,7 +189,6 @@ function clearGameBox(inputElement){
     }
 
 }
-
 
 //----------Phase 2----------------
 function square2(){
@@ -366,24 +369,7 @@ if(points < 100){
             }
 }
 
-//----- keying in username-----------
-function gettingPlayerName(){
-    var x = document.createElement("INPUT");
-    x.placeholder= "Username";
-    x.className = "username";
-    x.setAttribute("type", "text");
-    topleft.appendChild(x);
-    x.addEventListener('keypress', function(e){
-        if(e.key === 'Enter'){
-               if(document.querySelector(".username").value === ''){
-                alertusername();
-               }else{
-                name = document.querySelector(".username").value;
-               }
-            document.querySelector(".username").value = '';
-        }
-    })
-}
+
 //------function to display HIGH scores-----
 function displayhighscore(){
 scoreArray.innerHTML = "";
@@ -401,17 +387,17 @@ scoreArray.innerHTML = "";
 
 function alert0(){
 Swal.fire({
-  icon: 'info',
-  title: 'GAME OVER',
-  text: 'Try Again!',
-});
+        icon: 'info',
+        title: 'GAME OVER',
+        text: 'Try Again!',
+    });
 }
 
 function alertusername(){
-Swal.fire({
-  icon: 'info',
-  title: 'please enter a username',
-});
+    Swal.fire({
+        icon: 'info',
+        title: 'please enter a username',
+    });
 }
 
 function sound(src) {
@@ -431,4 +417,50 @@ function sound(src) {
 
 function playmusic(){
     myMusic.play()
+}
+
+
+//----- keying in username-----------
+function gettingPlayerName(){
+    var x = document.createElement("INPUT");
+    x.placeholder= "Username";
+    x.className = "username";
+    x.setAttribute("type", "text");
+    document.querySelector(".popup").appendChild(x);
+    x.addEventListener('keypress', function(e){
+        if(e.key === 'Enter'){
+               if(x.value === ''){
+                alertusername();
+               }else{
+                name = x.value;
+                checkingUser();
+               }
+        x.value = '';
+        }
+    })
+}
+
+//---------username Request Pop up-----
+function userpopup(){
+    var popup = document.createElement("div");
+    popup.className = "popup";
+    newname.appendChild(popup);
+    gettingPlayerName();
+    blurfilter();
+}
+
+//------- blur function -----------
+function blurfilter(){
+    whole.classList.add("blurfilter");
+}
+
+//------ check if user click start without inputtting a username---------
+
+function checkingUser(){
+    if (name === '') {
+        userpopup();
+    }else{
+        whole.classList.remove("blurfilter");
+        newname.removeChild(document.querySelector(".popup"));
+    }
 }

@@ -102,3 +102,25 @@ li{
 	font-size: 15px;
 	color: white;
 }
+
+.popup{
+	width: 400px;
+	height: 300px;
+	position: absolute;
+	display: flex;
+	background-color: white;
+	filter: none;
+}
+
+.blurfilter {
+	filter: blur(10px);
+	background-color: rgba(0,0,0,0.5);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+.new{
+		display: flex;
+	justify-content: center;
+	align-items: center;
+}
