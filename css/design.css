@@ -1,7 +1,16 @@
-font-family: 'Josefin Sans', sans-serif;
+/*font-family: 'Josefin Sans', sans-serif;
 font-family: 'Righteous', cursive;
 font-family: 'Montserrat Subrayada', sans-serif;
-font-family: 'Cute Font', cursive;
+font-family: 'Cute Font', cursive;*/
+
+@font-face {
+    font-family: 'neon';
+    src: url('../font/neonfont/neon-webfont.woff2') format('woff2'),
+         url('../font/neonfont/neon-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
 
 body, html {
 height: 100%;
@@ -19,10 +28,11 @@ body {
 .gameBox {
 	height: 800px;
 	width: 1000px;
-	border: 5px #03e8fc solid;
+	border: 3px #03e8fc solid;
 	background-color: #151269;
 	position: relative;
 	overflow: hidden;
+	box-shadow: 0 0 40px #03e8fc;
 }
 
 .Background {
@@ -39,12 +49,14 @@ body {
 	text-align: center;
 	display: flex;
 	flex-direction: column;
+	border:3px #03e8fc solid;
+	border-right:0px;
+	box-shadow: 0 0 40px #03e8fc;
 }
 
 .topLeft {
 	height: 300px;
 	width: 200px;
-	border:3px #03e8fc solid;
 	background-color: #1B02A3;
 	display: flex;
 	flex-direction: column;
@@ -52,11 +64,11 @@ body {
 }
 
 .start_button{
+	font-family: 'neon';
 	width: 90%;
-	border-radius: 10%;
+	border-radius: 10px;
 	background-color: #a72ee8;
-	font-family: '';
-	font-size: 50px;
+	font-size: 40px;
 	color: white;
   -webkit-transition-duration: 0.4s; /* Safari */
   transition-duration: 0.4s;
@@ -69,13 +81,13 @@ body {
 }
 
 .score{
-	font-family: '';
+	font-family: 'Cute Font';
 	font-size: 30px;
 	color: white;
 }
 
 .livesDisplay{
-	font-family: '';
+	font-family: 'Cute Font';
 	font-size: 30px;
 	color: white;
 }
@@ -83,23 +95,34 @@ body {
 .bottomLeft {
 	height: 500px;
 	width: 200px;
-	border:3px #03e8fc solid;
 	background-color: #1B02A3;
+	border-top: 3px #03e8fc solid
 }
 
 .bottomLeft h2 {
-	font-family: '';
+	font-family: 'neon';
 	color: white;
 }
 
 .username{
+	font-family: 'neon';
 	width: 90%;
-	border-radius: 10%;
+	height: 30%;
 	margin: 0 auto;
+	text-align: center;
+  color: #FB4264;
+  font-size: 40px;
+  line-height: 9vw;
+  text-shadow: 0 0 3vw #F40A35;
+  background-color: #151269;
+  border-radius: 10px;
 }
 
+.username::placeholder { color: #FB4264; }
+
 li{
-	font-size: 15px;
+	font-family: 'Cute Font';
+	font-size: 30px;
 	color: white;
 }
 
@@ -108,8 +131,12 @@ li{
 	height: 300px;
 	position: absolute;
 	display: flex;
-	background-color: white;
-	filter: none;
+	justify-content: center;
+	align-items: center;
+	background-color: #201db8;
+	border-radius: 10%;
+	box-shadow: 0 0 40px #FF0000, 0 0 40px #0000FF;
+
 }
 
 .blurfilter {
@@ -120,7 +147,7 @@ li{
 	align-items: center;
 }
 .new{
-		display: flex;
+	display: flex;
 	justify-content: center;
 	align-items: center;
 }

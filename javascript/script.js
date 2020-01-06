@@ -5,11 +5,10 @@ var colours = ['Aqua','DarkMagenta','DarkViolet','SpringGreen'];
 var numSquares = 30;
 var lose = false;
 var found = false;
-var livescount = 1;
+var livescount = 5;
 var points = 0;
 var myMusic = new sound("../img/ChetFaker1998.mp3");
 
-var phaseOne = false;
 var phasePoints = 20;
 
 var highScoreArray = [];
@@ -34,7 +33,7 @@ start.addEventListener("click", createGame);
 start.addEventListener("click", playmusic);
 var live = document.createElement("div");
 live.className = "livesDisplay";
-live.innerHTML = `lives left ${livescount}`;
+live.innerHTML = `LIVES LEFT: ${livescount}`;
 scoreDis.innerHTML = `Score: ${points}`
 topleft.appendChild(live);
 
@@ -126,11 +125,11 @@ function square(){
 function loseCheck(){
     if(livescount === 0){
         alert0();
-        livescount = 1;
-        live.innerHTML = `lives left: ${livescount}`;
+        live.innerHTML = `LIVES LEFT: ${livescount}`;
         highScoreArray.push({name:name, score:points});
         points = 0;
         name = "";
+        livescount = 5;
         scoreDis.innerHTML = `Score: ${points}`
         displayhighscore();
         clearGameBox(box);
@@ -140,7 +139,7 @@ function loseCheck(){
     else{
         live.innerHTML = ``;
         livescount--;
-        live.innerHTML = `lives left: ${livescount}`;
+        live.innerHTML = `LIVES LEFT: ${livescount}`;
         Swal.fire({
                 icon: 'error',
                 title: 'Oops...',
@@ -165,14 +164,14 @@ function foundCheck(){
                 text: 'Thats not meee!',
                 })
                 livescount--;
-                live.innerHTML = `lives left: ${livescount}`;
+                live.innerHTML = `LIVES LEFT: ${livescount}`;
             } else if(livescount === 0){
                     alert0();
-                    livescount = 1;
-                    live.innerHTML = `lives left: ${livescount}`;
+                    live.innerHTML = `LIVES LEFT: ${livescount}`;
                     highScoreArray.push({name:name, score:points});
                     points = 0;
                     name = "";
+                    livescount = 5;
                     scoreDis.innerHTML = `Score: ${points}`
                     displayhighscore();
                     clearGameBox(box);
@@ -423,7 +422,7 @@ function playmusic(){
 //----- keying in username-----------
 function gettingPlayerName(){
     var x = document.createElement("INPUT");
-    x.placeholder= "Username";
+    x.placeholder= "USERNAME";
     x.className = "username";
     x.setAttribute("type", "text");
     document.querySelector(".popup").appendChild(x);
@@ -454,7 +453,7 @@ function blurfilter(){
     whole.classList.add("blurfilter");
 }
 
-//------ check if user click start without inputtting a username---------
+//----check if user click start without inputing a username------
 
 function checkingUser(){
     if (name === '') {
