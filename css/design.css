@@ -1,0 +1,104 @@
+font-family: 'Josefin Sans', sans-serif;
+font-family: 'Righteous', cursive;
+font-family: 'Montserrat Subrayada', sans-serif;
+font-family: 'Cute Font', cursive;
+
+body, html {
+height: 100%;
+display: flex;
+justify-content: center;
+align-items: center;
+}
+
+body {
+	background-image: url('../img/856732.jpg');
+	  background-attachment: fixed;
+  	background-position: center;
+}
+
+.gameBox {
+	height: 800px;
+	width: 1000px;
+	border: 5px #03e8fc solid;
+	background-color: #151269;
+	position: relative;
+	overflow: hidden;
+}
+
+.Background {
+	padding-top: 100px;
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+}
+
+
+.leftbox{
+	max-height: 800px;
+	text-align: center;
+	display: flex;
+	flex-direction: column;
+}
+
+.topLeft {
+	height: 300px;
+	width: 200px;
+	border:3px #03e8fc solid;
+	background-color: #1B02A3;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-around;
+}
+
+.start_button{
+	width: 90%;
+	border-radius: 10%;
+	background-color: #a72ee8;
+	font-family: '';
+	font-size: 50px;
+	color: white;
+  -webkit-transition-duration: 0.4s; /* Safari */
+  transition-duration: 0.4s;
+  margin: 0 auto;
+}
+
+.start_button:hover {
+  background-color: #151269;
+  color: white;
+}
+
+.score{
+	font-family: '';
+	font-size: 30px;
+	color: white;
+}
+
+.livesDisplay{
+	font-family: '';
+	font-size: 30px;
+	color: white;
+}
+
+.bottomLeft {
+	height: 500px;
+	width: 200px;
+	border:3px #03e8fc solid;
+	background-color: #1B02A3;
+}
+
+.bottomLeft h2 {
+	font-family: '';
+	color: white;
+}
+
+.username{
+	width: 90%;
+	border-radius: 10%;
+	margin: 0 auto;
+}
+
+li{
+	font-size: 15px;
+	color: white;
+}
