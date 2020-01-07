@@ -7,7 +7,7 @@ var lose = false;
 var found = false;
 var livescount = 5;
 var points = 0;
-var myMusic = new sound("../img/ChetFaker1998.mp3");
+var myMusic = new sound("./img/ChetFaker1998.mp3");
 var moveBubbles;
 
 var phasePoints = 20;
