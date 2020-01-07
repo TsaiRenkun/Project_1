@@ -8,6 +8,7 @@ var found = false;
 var livescount = 5;
 var points = 0;
 var myMusic = new sound("../img/ChetFaker1998.mp3");
+var moveBubbles;
 
 var phasePoints = 20;
 
@@ -467,8 +468,7 @@ for (var i = 20; i < squares.length; i++) {
         squaremovementup,
         squaretiming
         )
-    }
- 
+    } 
 }
 
 //------ Random movement of bubbles-------
@@ -478,6 +478,7 @@ return parseInt(multi * Math.random() ,10);
 
 function move(){
 var divs = document.querySelectorAll(".bubble");
+
 var ww = window.innerWidth;
 var wh = window.innerHeight;
 
@@ -504,6 +505,7 @@ let constraint = Math.min(ww, wh);
 //--------Game creation-------------------
 function createGame(){
 if(points < 100){
+    clearInterval(moveBubbles);
     clearGameBox(box);
     bubbles = [];
     squares = [];
@@ -530,6 +532,7 @@ if(points < 100){
             clickSquare();
             movementPhaseThree();
         }else if (points >= 1000){
+            clearInterval(moveBubbles);
             clearGameBox(box);
             bubbles = [];
             squares = [];
@@ -538,7 +541,7 @@ if(points < 100){
             square3();
             clickSquare();
             movementPhaseFour();
-            window.setInterval(move, 1000);
+            moveBubbles = setInterval(move, 1000);
         }
 }
 
