@@ -50,6 +50,7 @@ function clickBubble(){
         bubbles[i].addEventListener('click', foundCheck )
     }
 }
+//----random colour-------------
 function randomcolour(){
     if(points < 1000){
   return Math.floor(Math.random() * 6);
@@ -167,6 +168,7 @@ function loseCheck(){
         name = "";
         livescount = 5;
         scoreDis.innerHTML = `SCORE: ${points}`
+        live.innerHTML = `LIVES LEFT: ${livescount}`
         displayhighscore();
         clearGameBox(box);
         checkingUser();
@@ -198,6 +200,7 @@ function foundCheck(){
                     points = 0;
                     name = "";
                     livescount = 5;
+                    live.innerHTML = `LIVES LEFT: ${livescount}`
                     scoreDis.innerHTML = `SCORE: ${points}`
                     displayhighscore();
                     clearGameBox(box);
@@ -468,7 +471,7 @@ for (var i = 20; i < squares.length; i++) {
  
 }
 
-
+//------ Random movement of bubbles-------
 const rand = (multi) => {
 return parseInt(multi * Math.random() ,10);
 }
